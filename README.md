@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Notes Fullstack
 
-## Getting Started
+**Projeto Pessoal de Estudo Fullstack**
 
-First, run the development server:
+Bem-vindo ao **Notes Fullstack**! Este é um web-app de notas (stickers) que visa abordar as problemáticas mais comuns da atualidade, incluindo:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Usabilidade e Design:** Interfaces intuitivas e atraentes.
+- **Responsividade:** Funcionamento em diferentes dispositivos e tamanhos de tela.
+- **Segurança:** Implementações contra injeções SQL e bots, além de proteção de sessão de usuário.
+- **Gerenciamento de Estado:** Uso de refresh tokens para garantir uma experiência contínua.
+- **Persistência de Dados:** Estrutura sólida para armazenamento de informações.
+- **Arquitetura de Microsserviços:** Implementação de um API Gateway para direcionar microsserviços.
+- **Princípios de Clean Architecture e SOLID:** Estruturação de pastas e arquivos com base em responsabilidades.
+- **Performance e Testes:** Foco em otimização e validação do código.
+- **Configuração de Variáveis de Ambiente e Deploy:** Preparação para ambientes de produção.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tecnologias Utilizadas
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Este projeto é construído com as seguintes tecnologias:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Backend:**
+  - Fastify
+  - Bcrypt
+  - JSON Web Token (JWT)
+  - Javascript
+  - Prisma (ORM) com PostgreSQL hospedado no NeonDB
 
-## Learn More
+- **Frontend:**
+  - Next.js
+  - TypeScript
+  - React
+  - Tailwind CSS
+  - Zod para validação de schemas
+  - Hook Form e Resolvers para gerenciamento de formulários
 
-To learn more about Next.js, take a look at the following resources:
+- **Ferramentas de Desenvolvimento:**
+  - ESLint para linting de código
+  - Dotenv para gerenciamento de variáveis de ambiente
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Documentação da API
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+A API está documentada com [Swagger](#LINK), facilitando a visualização e o teste das rotas disponíveis.
 
-## Deploy on Vercel
+## Imagens
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Aqui estão algumas imagens do projeto:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+![Imagem 1](link-para-imagem1)
+![Imagem 2](link-para-imagem2)
+![Imagem 3](link-para-imagem3)
+
+---
+
+Este é um projeto pequeno, mas as documentações são simples e essenciais para garantir uma compreensão clara e efetiva de todas as funcionalidades implementadas.
+
+## Contribuições
+
+Se você deseja contribuir para este projeto, fique à vontade para enviar suas sugestões e melhorias!
