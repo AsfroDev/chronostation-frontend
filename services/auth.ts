@@ -2,7 +2,7 @@
 
 import { cookies } from 'next/headers'
 
-const API_URL = 'https://notes-fullstack-backend-ta2v.onrender.com'
+const API_URL = process.env.NEXT_PUBLIC_ENV_API
 
 import { LoginCredentials, RegisterCredentials, UserResponse, User } from './auth-types'
 
