@@ -2,9 +2,15 @@
 
 import { cookies } from 'next/headers'
 
-const API_URL = process.env.NEXT_PUBLIC_ENV_API
+//fix: expose enviroment api url for test (secure testing api)
+const API_URL = 'https://notes-backend-yncf.onrender.com'
 
-import { LoginCredentials, RegisterCredentials, UserResponse, User } from './auth-types'
+import {
+  LoginCredentials,
+  RegisterCredentials,
+  UserResponse,
+  User,
+} from './auth-types'
 
 export const loginUser = async (
   credentials: LoginCredentials,
