@@ -1,17 +1,19 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { loginSchema, LoginSchema } from "./definitions";
 import { handleLogin } from "./actions";
+import Link from "next/link";
+import { Loader2 } from "lucide-react";
 
 export default function Form() {
-  const [errorMessage, setErrorMessage] = useState("");
+  const [displayMsg, setDisplayMsg] = useState("");
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<LoginSchema>({
     resolver: zodResolver(loginSchema),
   });
@@ -22,34 +24,42 @@ export default function Form() {
         email: data.email,
         password: data.password,
       });
-      setErrorMessage("");
+      setDisplayMsg("");
     } catch {
-      setErrorMessage("Usuário ou senha incorretos.");
+      setDisplayMsg("Usuário ou senha incorretos.");
     }
   };
 
+  useEffect(() => {
+    if (displayMsg) {
+      const timer = setTimeout(() => setDisplayMsg(""), 6000);
+      return () => clearTimeout(timer);
+    }
+  }, [displayMsg]);
+
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-      {/* Mensagem de erro */}
-      {errorMessage && (
-        <div className="text-red-500 text-sm">{errorMessage}</div>
-      )}
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 flex flex-col">
+      {/* Mensagem de erro com animação */}
+      <div
+        className={`transition-all duration-500 transform ${
+          displayMsg ? "scale-100 opacity-100" : "scale-0 opacity-0"
+        } bg-red-200 text-red-500 text-sm px-4 py-1 text-center rounded-lg`}
+      >
+        {displayMsg}
+      </div>
 
       {/* Campo de email */}
       <div>
-        <label
-          htmlFor="email"
-          className="block text-sm font-medium text-gray-700"
-        >
+        <label htmlFor="email" className="block text-sm font-medium">
           Email
         </label>
         <input
           id="email"
           type="email"
           {...register("email")}
-          className={`mt-1 block w-full px-3 py-2 border ${
+          className={`mt-1 input_default ${
             errors.email ? "border-red-500" : "border-gray-300"
-          } rounded-md shadow-sm`}
+          } shadow-sm`}
         />
         {errors.email && (
           <span className="text-red-500 text-sm">{errors.email.message}</span>
@@ -58,19 +68,16 @@ export default function Form() {
 
       {/* Campo de senha */}
       <div>
-        <label
-          htmlFor="password"
-          className="block text-sm font-medium text-gray-700"
-        >
+        <label htmlFor="password" className="block text-sm font-medium">
           Senha
         </label>
         <input
           id="password"
           type="password"
           {...register("password")}
-          className={`mt-1 block w-full px-3 py-2 border ${
+          className={`mt-1 input_default ${
             errors.password ? "border-red-500" : "border-gray-300"
-          } rounded-md shadow-sm`}
+          } shadow-sm`}
         />
         {errors.password && (
           <span className="text-red-500 text-sm">
@@ -78,13 +85,24 @@ export default function Form() {
           </span>
         )}
       </div>
-
+      
+      <div className="w-full flex justify-end -translate-y-2">
+        <Link href={"/forgot-password"} className="hover:underline text-sm">
+          Esqueceu a senha?
+        </Link>
+      </div>
+      
       {/* Botão de submit */}
       <button
         type="submit"
-        className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600"
+        className="primary_button"
+        disabled={isSubmitting}
       >
-        Entrar
+        {isSubmitting ? (
+          <Loader2 className="animate-spin h-6 w-6" />
+        ) : (
+          "Conectar"
+        )}
       </button>
     </form>
   );

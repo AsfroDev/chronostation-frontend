@@ -3,11 +3,19 @@
 @tailwind utilities;
 
 :root {
-  --background: #;
-  --foreground: #;
+  --background: #ffffff;
+  --background-middle: #f8f8f8;
+  --text-soft: #adadad;
+  --text-middle: #989898;
+  --text-strong: #4d4d4d;
+  --lines: #e1e1e1;
+  --ui-bg-selected: #aaccff;
+  --ui-fg-selected: #116df6;
+  border-radius: 12px;
+  user-select: none;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
     --background: #;
     --foreground: #;
@@ -15,7 +23,7 @@
 }
 
 body {
-  color: var(--foreground);
+  color: var(--text-soft);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -24,4 +32,63 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.input_default {
+  border-radius: 16px;
+  padding: 13px 12px;
+  border: 1px solid var(--lines);
+  display: block;
+  width: 100%;
+  transition: 200ms;
+}
+.input_default:focus {
+  outline: 1px solid var(--text-soft);
+  transition: 200ms;
+}
+
+.large_text {
+  color: var(--text-strong);
+  font-size: 30px;
+  font-weight: 700;
+  color: transparent;
+background: #666666;
+-webkit-background-clip: text;
+-moz-background-clip: text;
+background-clip: text;
+text-shadow: 0px 3px 3px rgba(255,255,255,0.5);
+}
+
+.primary_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--ui-bg-selected);
+  color: var(--ui-fg-selected);
+  font-weight: 700;
+  border-radius: 12px;
+  padding: 14px 20px;
+  outline: 1px solid transparent;
+  transition: 200ms;
+}
+.primary_button:hover{
+  filter: brightness(1.05);
+  transition: 200ms;
+}
+
+.secondary_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #eaeaea;
+  color: var(--text-middle);
+  border-radius: 12px;
+  padding: 14px 20px;
+  outline: 1px solid transparent;
+  transition: 200ms;
+}
+.secondary_button:hover{
+  filter: brightness(1.07);
+  outline: 1px solid var(--text-soft);
+  transition: 200ms;
 }
