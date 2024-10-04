@@ -136,7 +136,7 @@ export default function Form() {
         {isSubmitting ? (
           <Loader2 className="h-6 w-6 animate-spin" />
         ) : (
-          'Conectar'
+          'Cadastrar'
         )}
       </button>
     </form>
