@@ -1,10 +1,11 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { registerSchema, RegisterSchema } from './definitions'
-import { handleRegister } from './actions'
+import { loginSchema, LoginSchema } from './definitions'
+import { handleLogin } from './actions'
+import Link from 'next/link'
 import { Loader2 } from 'lucide-react'
 
 export default function Form() {
@@ -13,21 +14,19 @@ export default function Form() {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-  } = useForm<RegisterSchema>({
-    resolver: zodResolver(registerSchema),
+  } = useForm<LoginSchema>({
+    resolver: zodResolver(loginSchema),
   })
 
-  const onSubmit = async (data: RegisterSchema) => {
+  const onSubmit = async (data: LoginSchema) => {
     try {
-      await handleRegister({
+      await handleLogin({
         email: data.email,
         password: data.password,
-        name: data.name,
-        loginProvider: 'Email',
       })
       setDisplayMsg('')
     } catch {
-      setDisplayMsg('Não foi possível realizar o registro, no momento.')
+      setDisplayMsg('Usuário ou senha incorretos.')
     }
   }
 
@@ -47,25 +46,6 @@ export default function Form() {
         } rounded-lg bg-red-200 px-4 py-1 text-center text-sm text-red-500`}
       >
         {displayMsg}
-      </div>
-
-      {/* Campo de nome */}
-      <div>
-        <label htmlFor="name" className="block text-sm font-medium">
-          Seu nome e sobrenome
-        </label>
-        <input
-          id="name"
-          type="name"
-          placeholder="Nome"
-          {...register('name')}
-          className={`input_default mt-1 ${
-            errors.name ? 'border-red-500' : 'border-gray-300'
-          } shadow-sm`}
-        />
-        {errors.name && (
-          <span className="text-sm text-red-500">{errors.name.message}</span>
-        )}
       </div>
 
       {/* Campo de email */}
@@ -108,31 +88,10 @@ export default function Form() {
         )}
       </div>
 
-      {/* Campo de confirmação de senha */}
-      <div>
-        <label htmlFor="password" className="block text-sm font-medium">
-          Confirme a Senha
-        </label>
-        <input
-          id="confirmPassword"
-          type="password"
-          placeholder="Senha"
-          {...register('confirmPassword')}
-          className={`input_default mt-1 ${
-            errors.confirmPassword ? 'border-red-500' : 'border-gray-300'
-          } shadow-sm`}
-        />
-        {errors.confirmPassword && (
-          <span className="text-sm text-red-500">
-            {errors.confirmPassword.message}
-          </span>
-        )}
-      </div>
-
-      <div className="flex w-full -translate-y-2 justify-start">
-        <p className="text-sm min-w-full">
-          Sua senha deve conter no mínimo seis digitos.
-        </p>
+      <div className="flex w-full -translate-y-2 justify-end">
+        <Link href={'/forgot-password'} className="text-sm hover:underline">
+          Esqueceu a senha?
+        </Link>
       </div>
 
       {/* Botão de submit */}
@@ -140,7 +99,7 @@ export default function Form() {
         {isSubmitting ? (
           <Loader2 className="h-6 w-6 animate-spin" />
         ) : (
-          'Cadastrar'
+          'Conectar'
         )}
       </button>
     </form>

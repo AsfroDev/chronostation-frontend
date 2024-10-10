@@ -1,21 +1,24 @@
-import Link from "next/link";
-import Form from "./form";
+import Link from 'next/link'
+import Form from './login-form'
+import LandingArticle from './landing-article'
 
 export default function Login() {
   return (
     <main className="flex w-full">
-      <section className="hidden lg:block lg:w-4/6 border-r-[1px] border-[var(--lines)] bg-[var(--background-middle)]">
-        SIDELEFT
+      <section className="hidden border-r-[1px] border-[var(--lines)] bg-[var(--background-middle)] lg:block lg:w-4/6">
+        <div className="flex h-full w-full flex-col items-center justify-center">
+          <LandingArticle />
+        </div>
       </section>
-      <aside className="min-h-screen w-full lg:w-2/6 flex justify-center items-center flex-col">
-        <div className="w-screen h-screen flex-col flex justify-center sm:h-fit lg:h-fit max-w-[500px] lg:w-fit bg-[var(--background-middle)] px-6 py-12 rounded-xl shadow-lg">
-          <h1 className="large_text">NotesWA</h1>
+      <aside className="flex min-h-screen w-full flex-col items-center justify-center bg-[var(--background-middle)] md:bg-[var(--background)] lg:w-2/6">
+        <div className="flex h-screen w-screen max-w-[500px] flex-col justify-center rounded-xl bg-[var(--background-middle)] px-6 py-12 sm:h-fit md:border md:shadow lg:h-fit lg:w-4/5 lg:border-none lg:bg-inherit lg:shadow-none">
+          <h1 className="logo_text">ChronoStation</h1>
           <h4>Entrar na sua conta</h4>
           <Form />
-          <div className="block mt-8">
+          <div className="mt-8 block">
             <p className="text-center">Sua primeira vez aqui?</p>
-            <Link href={"/register"}>
-              <button className="secondary_button w-full mt-3">
+            <Link href={'/register'}>
+              <button className="secondary_button mt-3 w-full">
                 Crie uma conta
               </button>
             </Link>
@@ -23,5 +26,5 @@ export default function Login() {
         </div>
       </aside>
     </main>
-  );
+  )
 }

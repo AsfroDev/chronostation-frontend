@@ -2,8 +2,7 @@
 
 import { cookies } from 'next/headers'
 
-//fix: expose enviroment api url for test (secure testing api)
-const API_URL = 'https://notes-backend-yncf.onrender.com'
+const API_URL = process.env.NEXT_PUBLIC_ENV_API
 
 import {
   LoginCredentials,
