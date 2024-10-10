@@ -9,6 +9,7 @@
   --text-middle: #5b5b5b;
   --text-strong: #2f2f2f;
   --lines: #e1e1e1;
+  --lines-middle: #d1d1d1;
   --ui-bg-selected: #b0cfff;
   --ui-fg-selected: #116df6;
   user-select: none;
@@ -52,6 +53,7 @@ img {
   }
 }
 
+/* ------------ Inputs ------------ */
 .input_default {
   border-radius: 12px;
   padding: 13px 12px;
@@ -70,8 +72,39 @@ img {
   opacity: 75%;
 }
 
+/* ------------ Texts ------------ */
 .logo_text {
   font-size: 32px;
+  font-weight: 700;
+  background: #666666;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  color: transparent;
+  text-shadow: 0px 3px 3px rgba(224, 224, 224, 0.5);
+}
+.logo_text_lg {
+  font-size: 28px;
+  font-weight: 700;
+  background: #666666;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  color: transparent;
+  text-shadow: 0px 3px 3px rgba(224, 224, 224, 0.5);
+}
+.logo_text_md {
+  font-size: 24px;
+  font-weight: 700;
+  background: #666666;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  color: transparent;
+  text-shadow: 0px 3px 3px rgba(224, 224, 224, 0.5);
+}
+.logo_text_sm {
+  font-size: 20px;
   font-weight: 700;
   background: #666666;
   background-clip: text;
@@ -96,6 +129,7 @@ img {
   color: var(--text-middle);
 }
 
+/* ------------ Buttons ------------ */
 .primary_button {
   position: relative;
   overflow: hidden;
@@ -161,5 +195,36 @@ img {
 }
 .tertiary_button:hover {
   background-color: var(--text-middle);
+  transition: 200ms;
+}
+
+.circle_button {
+  width: fit-content;
+  aspect-ratio: 1/1;
+  border-radius: 100%;
+  border: 1px solid var(--lines-middle);
+  padding: 10px;
+  background-color: inherit;
+  transition: 200ms;
+}
+.circle_button:hover {
+  background-color: var(--lines);
+  transition: 200ms;
+}
+
+.rounded_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #eaeaea;
+  color: var(--text-middle);
+  border-radius: 1000px;
+  padding: 14px 20px;
+  outline: 1px solid transparent;
+  transition: 200ms;
+}
+.rounded_button:hover {
+  filter: brightness(1.07);
+  outline: 1px solid var(--text-soft);
   transition: 200ms;
 }
