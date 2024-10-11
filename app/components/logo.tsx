@@ -1,13 +1,12 @@
+import Link from 'next/link'
+
 export default function Logo() {
-    return (
-        <div className="flex items-center">
-       <div className="w-fit hidden lg:block">
-       <h1 className="logo_text_lg">ChronoStation</h1>
-       </div>
-       <h1 className="font-bold text-md sm:hidden">ChronoStation</h1>
-       <h1 className="logo_text_sm hidden sm:block md:hidden">ChronoStation</h1>
-       <h1 className="logo_text_md hidden md:block lg:hidden">ChronoStation</h1>
-     
-        </div>
-    )
+  return (
+    <Link
+      href={'/'}
+      className="flex w-1/2 md:w-full md:ml-4 items-center justify-center md:justify-start lg:justify-start lg:w-fit"
+    >
+      <h1 className="text-md md:text-xl lg:text-2xl">ChronoStation</h1>
+    </Link>
+  )
 }
