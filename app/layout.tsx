@@ -1,8 +1,13 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import { Rethink_Sans } from 'next/font/google'
+import { Roboto, Rethink_Sans } from 'next/font/google'
 
-const retinkSans = Rethink_Sans({
+const rethinkSans = Rethink_Sans({
+  weight: '400',
+  subsets: ['latin'],
+})
+
+const roboto = Roboto({
   weight: '400',
   subsets: ['latin'],
 })
@@ -19,7 +24,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${retinkSans.className} antialiased`}>{children}</body>
+      <body
+        className={`${roboto.className}, ${rethinkSans.className} antialiased`}
+      >
+        {children}
+      </body>
     </html>
   )
 }
