@@ -75,43 +75,7 @@ img {
 /* ------------ Texts ------------ */
 .logo_text {
   font-size: 32px;
-  font-weight: 700;
-  background: #666666;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  color: transparent;
-  text-shadow: 0px 3px 3px rgba(224, 224, 224, 0.5);
-}
-.logo_text_lg {
-  font-size: 28px;
-  font-weight: 700;
-  background: #666666;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  color: transparent;
-  text-shadow: 0px 3px 3px rgba(224, 224, 224, 0.5);
-}
-.logo_text_md {
-  font-size: 24px;
-  font-weight: 700;
-  background: #666666;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  color: transparent;
-  text-shadow: 0px 3px 3px rgba(224, 224, 224, 0.5);
-}
-.logo_text_sm {
-  font-size: 20px;
-  font-weight: 700;
-  background: #666666;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  color: transparent;
-  text-shadow: 0px 3px 3px rgba(224, 224, 224, 0.5);
+  color: var(--text-middle);
 }
 .large_text {
   font-size: 30px;
@@ -170,7 +134,7 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #eaeaea;
+  background-color: #e3e3e3;
   color: var(--text-middle);
   border-radius: 0;
   padding: 14px 20px;
@@ -191,28 +155,31 @@ img {
   background-color: var(--text-strong);
   border-radius: 0;
   padding: 14px 20px;
-  outline: 1px solid var(--lines);
+  outline: 1px solid var(--text-strong);
 }
 .tertiary_button:hover {
   background-color: var(--text-middle);
-  transition: 200ms;
-}
-
-.circle_button {
-  width: fit-content;
-  aspect-ratio: 1/1;
-  border-radius: 100%;
-  border: 1px solid var(--lines-middle);
-  padding: 10px;
-  background-color: inherit;
-  transition: 200ms;
-}
-.circle_button:hover {
-  background-color: var(--lines);
+  outline: 1px solid var(--text-middle);
   transition: 200ms;
 }
 
 .rounded_button {
+  width: fit-content;
+  height: fit-content;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  border-radius: 1000px;
+  padding: 10px 18px;
+  background-color: inherit;
+  transition: 200ms;
+}
+.rounded_button:hover {
+  background-color: var(--lines);
+  transition: 200ms;
+}
+
+.rounded__secondary_button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -223,7 +190,7 @@ img {
   outline: 1px solid transparent;
   transition: 200ms;
 }
-.rounded_button:hover {
+.rounded__secondary_button:hover {
   filter: brightness(1.07);
   outline: 1px solid var(--text-soft);
   transition: 200ms;
