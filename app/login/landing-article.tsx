@@ -6,6 +6,7 @@ import Img1 from '../../public/retro-games-1.png'
 import Img2 from '../../public/retro-games-2.png'
 import Img3 from '../../public/retro-games-3.png'
 import Img4 from '../../public/retro-games-4.png'
+import Link from 'next/link'
 
 export default function LandingArticle() {
   const [isVisible, setIsVisible] = useState(false)
@@ -64,11 +65,12 @@ export default function LandingArticle() {
           />
         </div>
       </article>
-      <button
+      <Link
+      href={'/'}
         className={`tertiary_button mt-20 w-1/4 transition-opacity delay-1000 duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
       >
         Visitar a loja
-      </button>
+      </Link>
     </>
   )
 }

@@ -18,11 +18,12 @@ export default function Login() {
           <div className="mt-8 block">
             <p className="text-center">Sua primeira vez aqui?</p>
             <Link href={'/register'}>
-              <button className="secondary_button mt-3 w-full">
+              <button type="button" className="secondary_button mt-3 w-full">
                 Crie uma conta
               </button>
             </Link>
           </div>
+          <Link href={'/'} className='tertiary_button mt-4 lg:hidden'>Ir a Loja</Link>
         </div>
       </aside>
     </main>
