@@ -2,7 +2,8 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { getToken, isTokenValid } from "./services/auth";
 
-const RESTRICTED_PUBLIC_PATHS = ["/login", "/register", "/forgot-password", "/"];
+const RESTRICTED_PUBLIC_PATHS = ["/login", "/register", "/forgot-password"];
+const PUBLIC_PATHS = ["/", "/produtos"]; // Adicione aqui as rotas que você deseja tornar públicas
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -14,7 +15,7 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL("/", request.url));
   }
 
-  if (!isLoggedIn && !RESTRICTED_PUBLIC_PATHS.includes(pathname)) {
+  if (!isLoggedIn && !RESTRICTED_PUBLIC_PATHS.includes(pathname) && !PUBLIC_PATHS.includes(pathname)) {
     return NextResponse.redirect(new URL("/login", request.url));
   }
 
